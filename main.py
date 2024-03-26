@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql import
+from pyspark.sql import Row
 from pyspark.sql.functions import col
 
 spark = SparkSession.builder.appName("test").getOrCreate()
@@ -13,13 +13,14 @@ data = [
 
 df = spark.createDataFrame(data)
 
-def get_product_category_pairs(df):
 
+def get_product_category(df):
     pairs_df = df.select("product_name", "category_name")
     products_with_no_category = df.filter(col("category_name").isNull()).select("product_name").distinct()
     return pairs_df, products_with_no_category
 
-pairs_df, products_with_no_category = get_product_category_pairs(df)
+
+pairs_df, products_with_no_category = get_product_category(df)
 
 print("Product-Category Pairs:")
 pairs_df.show()
