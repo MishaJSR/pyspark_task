@@ -1,10 +1,8 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
 
-# Создаем Spark сессию
-spark = SparkSession.builder.appName("example").getOrCreate()
+spark = SparkSession.builder.appName("test").getOrCreate()
 
-# Пример данных для датафрейма
 data = [
     Row(product_name='Product A', category_name='Category 1'),
     Row(product_name='Product B', category_name='Category 2'),
