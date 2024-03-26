@@ -22,5 +22,7 @@ def get_product_category_pairs(df):
 
 pairs_df, products_with_no_category = get_product_category_pairs(df)
 
-print("Product-Category Pairs:", pairs_df)
-print("\nProducts with No Category:", products_with_no_category)
+print("Product-Category Pairs:")
+pairs_df.show()
+print("\nProducts with No Category:")
+products_with_no_category.show()
